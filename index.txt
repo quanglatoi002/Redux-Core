@@ -1,0 +1,18 @@
+After create done store redux then integrated 
+with react UI(index.js)
+
+page index.js
+to be use store in reactUI you can import Provider
+import {Provider} from 'react-redux'
+import store from './redux/store'
+Provider get parameter store
+<Provider store= {store} >
+<Provider/>
+
+after create actions(actions object) for action creator
+ action creator => function return action
+after dispatch action previously created(addTodo in actions)
+to the side store get information addTodo(actions)
+->to the dispatch a action then need to
+import {useDispatch} from 'react-redux'
+-> in component react to the get data store common then we are use useSelector hook
