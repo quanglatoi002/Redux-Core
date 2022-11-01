@@ -23,9 +23,9 @@ export const searchFilterChange = (text) => {
     };
 };
 //---Filter By Status---
-export const statusFilterChange = (status) => {
+export const statusFilterChange = () => {
     return {
         type: "filters/statusFilterChange",
-        payload: status,
+        payload: text,
     };
 };

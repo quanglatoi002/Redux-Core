@@ -4,8 +4,6 @@ const initState = {
     priority: [],
 };
 const filtersReducer = (state = initState, action) => {
-    //  action => get in a object {type, payload}
-
     switch (action.type) {
         case "filters/searchFilterChange":
             return {
