@@ -34,10 +34,10 @@ export default createSlice({
             state.push(action.payload);
         },
         toggleTodoStatus: (state, action) => {
-            const currentTodo = state.find(
+            const currentTodo = state.filter(
                 (todo) => todo.id === action.payload
             );
-            if (currentTodo) currentTodo.completed = !currentTodo.completed;
+            currentTodo.completed = !currentTodo.completed;
         },
     },
 });

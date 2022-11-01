@@ -2,10 +2,10 @@ import { Col, Row, Input, Button, Select, Tag } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
-import Todo from "../Todo";
-import { todosRemainingSelector } from "../../redux/selectors";
-import todoListSlice from "./todosSlice";
 
+import Todo from "../Todo";
+import { addTodo } from "../../redux/actions";
+import { todosRemainingSelector } from "../../redux/selectors";
 export default function TodoList() {
     /*
      initState = ""
@@ -26,7 +26,7 @@ export default function TodoList() {
         //after use enter add then useDispatch action will sent reducer
         //dispatch()
         dispatch(
-            todoListSlice.actions.addTodo({
+            addTodo({
                 //addTodo => action creator it's get argument
                 //payload: pass object
                 id: uuidv4(),

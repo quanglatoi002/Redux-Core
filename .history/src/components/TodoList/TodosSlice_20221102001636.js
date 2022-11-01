@@ -37,7 +37,7 @@ export default createSlice({
             const currentTodo = state.find(
                 (todo) => todo.id === action.payload
             );
-            if (currentTodo) currentTodo.completed = !currentTodo.completed;
+            currentTodo.completed = !currentTodo.completed;
         },
     },
 });

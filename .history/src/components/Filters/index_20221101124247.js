@@ -1,13 +1,11 @@
 import { Col, Row, Input, Typography, Radio, Select, Tag } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-// import {
-//     priorityFilterChange,
-//     searchFilterChange,
-//     statusFilterChange,
-// } from "../../redux/actions";
-import filtersSlice from "./filtersSlice";
-
+import {
+    priorityFilterChange,
+    searchFilterChange,
+    statusFilterChange,
+} from "../../redux/actions";
 const { Search } = Input;
 
 export default function Filters() {
@@ -22,7 +20,7 @@ export default function Filters() {
         // after on side UI change Search then will render component
         setSearchText(e.target.value);
         //after get value change it'is dispatch searchFilterChange(result just received) by FilterSlice
-        dispatch(filtersSlice.actions.searchFilterChange(e.target.value));
+        dispatch(searchFilterChange(e.target.value));
         // -> call page redux/actions.js
         // -> vd: upload setSearchText(e.target.value) => setSearchText('quang')
         // export const searchFilterChange = (text = 'quang')  => {
@@ -32,12 +30,12 @@ export default function Filters() {
 
     const handleStatusChange = (e) => {
         setFilterStatus(e.target.value);
-        dispatch(filtersSlice.actions.statusFilterChange(e.target.value));
+        dispatch(statusFilterChange(e.target.value));
     };
 
     const handlePriorityChange = (value) => {
         setFilterPriorities(value);
-        dispatch(filtersSlice.actions.priorityFilterChange(value));
+        dispatch(priorityFilterChange(value));
     };
 
     return (

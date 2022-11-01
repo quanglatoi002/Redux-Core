@@ -8,13 +8,13 @@
 // const store = createStore(rootReducer, composeEnhancers);
 // export default store;
 import { configureStore } from "@reduxjs/toolkit";
-import filtersSlice from "../components/Filters/filtersSlice";
-import todoSlice from "../components/TodoList/todosSlice";
+import filtersReducer from "../components/Filters/filtersSlice";
+import todoListReducer from "../components/TodoList/TodosSlice";
 
 const store = configureStore({
     reducer: {
-        filters: filtersSlice.reducer,
-        todoList: todoSlice.reducer,
+        filters: filtersReducer,
+        todoList: todoListReducer,
     },
 });
 

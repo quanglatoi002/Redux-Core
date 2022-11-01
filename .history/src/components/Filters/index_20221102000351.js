@@ -32,12 +32,12 @@ export default function Filters() {
 
     const handleStatusChange = (e) => {
         setFilterStatus(e.target.value);
-        dispatch(filtersSlice.actions.statusFilterChange(e.target.value));
+        dispatch(statusFilterChange(e.target.value));
     };
 
     const handlePriorityChange = (value) => {
         setFilterPriorities(value);
-        dispatch(filtersSlice.actions.priorityFilterChange(value));
+        dispatch(priorityFilterChange(value));
     };
 
     return (

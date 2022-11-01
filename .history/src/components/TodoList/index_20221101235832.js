@@ -2,9 +2,11 @@ import { Col, Row, Input, Button, Select, Tag } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+
 import Todo from "../Todo";
+import { addTodo } from "../../redux/actions";
 import { todosRemainingSelector } from "../../redux/selectors";
-import todoListSlice from "./todosSlice";
+import todoListSlice from "./TodosSlice";
 
 export default function TodoList() {
     /*
