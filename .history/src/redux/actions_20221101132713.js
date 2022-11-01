@@ -13,11 +13,10 @@ export const addTodo = (data) => {
         payload: data,
     };
 };
-export const toggleTodoStatus = (todoId) => {
+export const toggleTodoStatus = (data) => {
     //data => action creator
     return {
         type: "todoList/toggleTodoStatus",
-        payload: todoId,
     };
 };
 

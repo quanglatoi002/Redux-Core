@@ -31,8 +31,7 @@ export const todosRemainingSelector = createSelector(
             }
             return (
                 todo.name.includes(searchText) &&
-                (status === "Completed" ? todo.completed : !todo.completed) &&
-                (priorities.length ? priorities.includes(todo.priority) : true)
+                (status === "Completed" ? todo.completed : !todo.completed)
             );
         });
     }

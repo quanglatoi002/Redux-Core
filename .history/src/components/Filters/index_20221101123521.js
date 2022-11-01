@@ -11,7 +11,7 @@ const { Search } = Input;
 export default function Filters() {
     const [searchText, setSearchText] = useState("");
     const [filterStatus, setFilterStatus] = useState("All");
-    const [filterPriorities, setFilterPriorities] = useState([]);
+    const [filterPriorities, setfilterPriorities] = useState([]);
 
     const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ export default function Filters() {
     };
 
     const handlePriorityChange = (value) => {
-        setFilterPriorities(value);
+        setfilterPriorities(value);
         dispatch(priorityFilterChange(value));
     };
 

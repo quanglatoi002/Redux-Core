@@ -17,7 +17,7 @@ export const toggleTodoStatus = (todoId) => {
     //data => action creator
     return {
         type: "todoList/toggleTodoStatus",
-        payload: todoId,
+        id: todoId,
     };
 };
 

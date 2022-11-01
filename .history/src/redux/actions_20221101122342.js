@@ -13,13 +13,6 @@ export const addTodo = (data) => {
         payload: data,
     };
 };
-export const toggleTodoStatus = (todoId) => {
-    //data => action creator
-    return {
-        type: "todoList/toggleTodoStatus",
-        payload: todoId,
-    };
-};
 
 //---Filter Search---
 export const searchFilterChange = (text) => {
@@ -39,7 +32,7 @@ export const statusFilterChange = (status) => {
 //---Filter By Priority---
 export const priorityFilterChange = (priorities) => {
     return {
-        type: "filters/prioritiesFilterChange",
+        type: "filters/priorityFilterChange",
         payload: priorities,
     };
 };

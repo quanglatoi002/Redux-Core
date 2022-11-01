@@ -1,17 +1,12 @@
 import { Col, Row, Input, Typography, Radio, Select, Tag } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-    priorityFilterChange,
-    searchFilterChange,
-    statusFilterChange,
-} from "../../redux/actions";
+import { searchFilterChange, statusFilterChange } from "../../redux/actions";
 const { Search } = Input;
 
 export default function Filters() {
     const [searchText, setSearchText] = useState("");
     const [filterStatus, setFilterStatus] = useState("All");
-    const [filterPriorities, setFilterPriorities] = useState([]);
 
     const dispatch = useDispatch();
 
@@ -21,21 +16,11 @@ export default function Filters() {
         setSearchText(e.target.value);
         //after get value change it'is dispatch searchFilterChange(result just received) by FilterSlice
         dispatch(searchFilterChange(e.target.value));
-        // -> call page redux/actions.js
-        // -> vd: upload setSearchText(e.target.value) => setSearchText('quang')
-        // export const searchFilterChange = (text = 'quang')  => {
-        // type: "filters/searchFilterChange",
-        // payload: quang
     };
 
     const handleStatusChange = (e) => {
         setFilterStatus(e.target.value);
         dispatch(statusFilterChange(e.target.value));
-    };
-
-    const handlePriorityChange = (value) => {
-        setFilterPriorities(value);
-        dispatch(priorityFilterChange(value));
     };
 
     return (
@@ -87,8 +72,6 @@ export default function Filters() {
                     allowClear
                     placeholder="Please select"
                     style={{ width: "100%" }}
-                    value={filterPriorities}
-                    onChange={handlePriorityChange}
                 >
                     <Select.Option value="High" label="High">
                         <Tag color="red">High</Tag>
