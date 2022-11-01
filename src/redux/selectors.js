@@ -30,6 +30,10 @@ export const todosRemainingSelector = createSelector(
                     : todo.name.includes(searchText);
             }
             return (
+                // if status !== "All"
+                // status === "Completed" return the complete = true and opposite return (status todo)
+                // and priorities != 0 then check todo.priority["Medium "] have including in priorities["Medium"]
+                // opposite "return true" to keep the previous value
                 todo.name.includes(searchText) &&
                 (status === "Completed" ? todo.completed : !todo.completed) &&
                 (priorities.length ? priorities.includes(todo.priority) : true)

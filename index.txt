@@ -16,3 +16,5 @@ to the side store get information addTodo(actions)
 ->to the dispatch a action then need to
 import {useDispatch} from 'react-redux'
 -> in component react to the get data store common then we are use useSelector hook
+-> split an reducer over small part(TodoSlice, FiltersSlice)
+use combineReducers to including 
