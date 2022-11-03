@@ -4,37 +4,33 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import Todo from "../Todo";
 import { todosRemainingSelector } from "../../redux/selectors";
-import todoListSlice from "./todosSlice";
+import todoListSlice, { addTodos } from "./todosSlice";
 
 export default function TodoList() {
-    /*
-     initState = ""
-    After use onChange data then will render setTodoName(e => e.target.value)
-    vd: import quang => q , qu, qua, quan, quang
-     to be change a state then it'is render components
-     */
     const [todoName, setTodoName] = useState("");
     const [priority, setPriority] = useState("Medium");
 
     const todoList = useSelector(todosRemainingSelector);
-    // const searchText = useSelector(searchTextSelector);
-    // console.log({ todoList, searchText });
     const dispatch = useDispatch();
-
     //handle
     const handleAddButtonClick = () => {
-        //after use enter add then useDispatch action will sent reducer
-        //dispatch()
         dispatch(
             todoListSlice.actions.addTodo({
-                //addTodo => action creator it's get argument
-                //payload: pass object
                 id: uuidv4(),
                 name: todoName,
                 priority: priority,
                 completed: false,
             })
         );
+        // }));
+        // dispatch(
+        //     addTodos({
+        //         id: uuidv4(),
+        //         name: todoName,
+        //         priority: priority,
+        //         completed: false,
+        //     })
+        // );
         setTodoName("");
         setPriority("Medium");
     };

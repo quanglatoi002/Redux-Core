@@ -1,17 +1,11 @@
-// import { legacy_createStore as createStore } from "redux";
-// import rootReducer from "./reducer";
-// import { composeWithDevTools } from "redux-devtools-extension";
-
-// const composeEnhancers = composeWithDevTools();
-
-// //Create common store
-// const store = createStore(rootReducer, composeEnhancers);
-// export default store;
 import { configureStore } from "@reduxjs/toolkit";
 import filtersSlice from "../components/Filters/filtersSlice";
 import todoSlice from "../components/TodoList/todosSlice";
 
 const store = configureStore({
+    // get a object with a filters is reducer then in reducer
+    //two reducer: 1.filters save back state of we
+    //vd : Search => "PHP", Status ="All", Priority{Medium} => it's save filters
     reducer: {
         filters: filtersSlice.reducer,
         todoList: todoSlice.reducer,

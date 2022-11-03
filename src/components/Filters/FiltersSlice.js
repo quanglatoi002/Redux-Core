@@ -1,35 +1,3 @@
-// const initState = {
-//     search: "",
-//     status: "All",
-//     priorities: [],
-// };
-// const filtersReducer = (state = initState, action) => {
-//     //  action => get in a object {type, payload}
-
-//     switch (action.type) {
-//         case "filters/searchFilterChange":
-//             return {
-//                 ...state,
-//                 search: action.payload,
-//             };
-//         case "filters/statusFilterChange":
-//             return {
-//                 ...state,
-//                 status: action.payload,
-//             };
-//         case "filters/prioritiesFilterChange":
-//             return {
-//                 ...state,
-//                 priorities: action.payload,
-//             };
-
-//         default:
-//             return state;
-//     }
-// };
-
-// export default filtersReducer;
-
 import { createSlice } from "@reduxjs/toolkit";
 export default createSlice({
     name: "filters",
@@ -50,3 +18,32 @@ export default createSlice({
         },
     },
 });
+/*
+    vd: searchFilterChange => action creator
+    => (payload) => {
+        return {
+            type:'filters/searchFilterChange
+            payload: payload
+
+        } => create action
+    }
+
+    ====== structure createSlice =====
+    => {
+        filtersSlice return two slice
+        1. reducer,
+        2. actions => use in side UI
+    }
+    action => object
+
+    {
+        type: 'avc
+        payload: value
+    }
+    action creator function : () => {
+        return {
+            type: 'abc'
+            payload: value
+        }
+    }
+*/
