@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const todosSlice = createSlice({
     name: "todoList",
-    initialState: { status: "idle", todos: [] },
+    initialState: { status: "idle", todos: [], error: "" },
     reducers: {
         //name/addTodo
         // export const {addTodo, toggleTodoStatus} = actions.reducer
@@ -20,23 +20,12 @@ export const todosSlice = createSlice({
         builder
             // pending before the callback is called
             .addCase(fetchTodos.pending, (state, action) => {
-                console.log(action);
                 state.status = "loading";
             })
             // in successful payload
             .addCase(fetchTodos.fulfilled, (state, action) => {
-                console.log({ action });
                 state.todos = action.payload;
                 state.status = "idle";
-            })
-            .addCase(addNewTodo.fulfilled, (state, action) => {
-                state.todos.push(action.payload);
-            })
-            .addCase(updateTodo.fulfilled, (state, action) => {
-                let currentTodo = state.todos.find(
-                    (todo) => todo.id === action.payload
-                );
-                currentTodo = action.payload;
             });
         // when todoSlice error
         // .addCase(fetchTodos.rejected, (state, error) => {
@@ -47,41 +36,17 @@ export const todosSlice = createSlice({
     },
 });
 
-export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-    // try {
-    const res = await fetch("/api/todos");
-    const data = await res.json();
-    console.log(data);
-    return data.todos;
-
-    // } catch (error) {
-    //want result return array then argument add [] before error
-    // return rejectWithValue([], error);
-});
-export const addNewTodo = createAsyncThunk(
-    "todos/addNewTodo",
-    async (newTodo) => {
-        const res = await fetch("/api/todos", {
-            method: "POST",
-            body: JSON.stringify(newTodo),
-        });
-        const data = await res.json();
-        console.log("1 :" + { data });
-        return data.todos;
-    }
-);
-
-export const updateTodo = createAsyncThunk(
-    "todos/updateTodo",
-    async (updatedTodo) => {
-        const res = await fetch("/api/updateTodo", {
-            method: "POST",
-            body: JSON.stringify(updatedTodo),
-        });
-
-        const data = await res.json();
-        console.log("[updateTodo]", { data });
-        return data.todos;
+export const fetchTodos = createAsyncThunk(
+    "todo/fetchTodos",
+    async ({ rejectWithValue }) => {
+        try {
+            const res = await fetch("/api/todos");
+            const data = await res.json();
+            return data.todos;
+        } catch (error) {
+            //want result return array then argument add [] before error
+            return rejectWithValue([], error);
+        }
     }
 );
 

@@ -6,11 +6,11 @@ import filtersSlice from "./filtersSlice";
 const { Search } = Input;
 
 export default function Filters() {
-    const dispatch = useDispatch();
-
     const [searchText, setSearchText] = useState("");
     const [filterStatus, setFilterStatus] = useState("All");
     const [filterPriorities, setFilterPriorities] = useState([]);
+
+    const dispatch = useDispatch();
 
     //handle
     const handleSearchTextChange = (e) => {

@@ -12,6 +12,8 @@ export default function Filters() {
     const [filterStatus, setFilterStatus] = useState("All");
     const [filterPriorities, setFilterPriorities] = useState([]);
 
+    const dispatch = useDispatch();
+
     //handle
     const handleSearchTextChange = (e) => {
         // after on side UI change Search then will render component

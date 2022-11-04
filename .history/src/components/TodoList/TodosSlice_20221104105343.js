@@ -66,7 +66,7 @@ export const addNewTodo = createAsyncThunk(
             body: JSON.stringify(newTodo),
         });
         const data = await res.json();
-        console.log("1 :" + { data });
+        console.log({ data });
         return data.todos;
     }
 );

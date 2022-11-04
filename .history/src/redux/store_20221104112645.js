@@ -7,8 +7,8 @@ const store = configureStore({
     //two reducer: 1.filters save back state of we
     //vd : Search => "PHP", Status ="All", Priority{Medium} => it's save filters
     reducer: {
-        filters: filtersSlice,
-        todoList: todoSlice,
+        filters: filtersSlice.reducer,
+        todoList: todoSlice.reducer,
     },
 });
 

@@ -20,7 +20,6 @@ export const todosSlice = createSlice({
         builder
             // pending before the callback is called
             .addCase(fetchTodos.pending, (state, action) => {
-                console.log(action);
                 state.status = "loading";
             })
             // in successful payload
@@ -47,7 +46,7 @@ export const todosSlice = createSlice({
     },
 });
 
-export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
+export const fetchTodos = createAsyncThunk("todo/fetchTodos", async () => {
     // try {
     const res = await fetch("/api/todos");
     const data = await res.json();
@@ -66,7 +65,7 @@ export const addNewTodo = createAsyncThunk(
             body: JSON.stringify(newTodo),
         });
         const data = await res.json();
-        console.log("1 :" + { data });
+        console.log({ data });
         return data.todos;
     }
 );

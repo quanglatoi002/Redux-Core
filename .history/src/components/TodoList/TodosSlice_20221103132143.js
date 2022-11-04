@@ -20,7 +20,6 @@ export const todosSlice = createSlice({
         builder
             // pending before the callback is called
             .addCase(fetchTodos.pending, (state, action) => {
-                console.log(action);
                 state.status = "loading";
             })
             // in successful payload
@@ -37,6 +36,7 @@ export const todosSlice = createSlice({
                     (todo) => todo.id === action.payload
                 );
                 currentTodo = action.payload;
+                return currentTodo;
             });
         // when todoSlice error
         // .addCase(fetchTodos.rejected, (state, error) => {
@@ -66,7 +66,7 @@ export const addNewTodo = createAsyncThunk(
             body: JSON.stringify(newTodo),
         });
         const data = await res.json();
-        console.log("1 :" + { data });
+        console.log({ data });
         return data.todos;
     }
 );

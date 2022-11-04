@@ -30,6 +30,7 @@ export const todosSlice = createSlice({
                 state.status = "idle";
             })
             .addCase(addNewTodo.fulfilled, (state, action) => {
+                console.log("2: " + { action });
                 state.todos.push(action.payload);
             })
             .addCase(updateTodo.fulfilled, (state, action) => {

@@ -37,6 +37,7 @@ export const todosSlice = createSlice({
                     (todo) => todo.id === action.payload
                 );
                 currentTodo = action.payload;
+                return currentTodo;
             });
         // when todoSlice error
         // .addCase(fetchTodos.rejected, (state, error) => {
